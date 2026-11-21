@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "復活、KGcompany 〜拾い集めた知識で傑作を作る〜"
+title: "復活、こたつん System 〜拾い集めた知識で傑作を作る〜"
 date: 2025-07-30 10:00:00 +0900
 categories: blog
 tags: [スタート, 開発, 知識]
 ---
 
-# 復活、KGcompany 始動！
+# 復活、こたつん System 始動！
 
 記念すべき最初の投稿です。
 

@@ -1,1 +1,1 @@
-# KGcompany
+# こたつん System
