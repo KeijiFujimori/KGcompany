@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="プロフィール画像の仮配置">
+  <rect width="120" height="120" rx="60" fill="#dde7df"/>
+  <circle cx="60" cy="44" r="22" fill="#7e9886"/>
+  <path d="M24 112c3-25 17-38 36-38s33 13 36 38" fill="#7e9886"/>
+</svg>

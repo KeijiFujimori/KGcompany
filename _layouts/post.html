@@ -1,0 +1,22 @@
+---
+layout: default
+---
+
+<article class="article">
+  <header class="article-header">
+    <p class="article-category">
+      {%- if page.categories contains '読書' or page.categories contains '感想' -%}
+        読書
+      {%- elsif page.categories contains '勉強' or page.categories contains '勉強法' -%}
+        勉強
+      {%- else -%}
+        開発
+      {%- endif -%}
+    </p>
+    <h1>{{ page.title | escape }}</h1>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y年%-m月%-d日' }}</time>
+  </header>
+  <div class="article-content">
+    {{ content }}
+  </div>
+</article>

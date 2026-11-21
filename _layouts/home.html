@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+<section class="home-hero" aria-labelledby="home-title">
+  <p class="hero-kicker">KNOWLEDGE / LIFE / CREATE</p>
+  <h1 id="home-title">知識を拾い集めて、<br>自分だけの作品を作る。</h1>
+  <p class="hero-description">
+    開発・勉強・読書から得た気づきを記録しています。
+  </p>
+</section>
+
+<section class="posts-section" id="posts" aria-labelledby="posts-title">
+  <div class="section-heading">
+    <h2 id="posts-title">記事一覧</h2>
+    <div class="filters" aria-label="記事を絞り込む">
+      <button class="filter-button is-active" type="button" data-filter="すべて">すべて</button>
+      <button class="filter-button" type="button" data-filter="開発">開発</button>
+      <button class="filter-button" type="button" data-filter="勉強">勉強</button>
+      <button class="filter-button" type="button" data-filter="読書">読書</button>
+    </div>
+  </div>
+
+  <div class="post-grid">
+    {%- for post in site.posts -%}
+      {%- assign display_category = '開発' -%}
+      {%- if post.categories contains '読書' or post.categories contains '感想' -%}
+        {%- assign display_category = '読書' -%}
+      {%- elsif post.categories contains '勉強' or post.categories contains '勉強法' -%}
+        {%- assign display_category = '勉強' -%}
+      {%- endif -%}
+
+      <article class="post-card" data-category="{{ display_category }}">
+        <a class="post-card-link" href="{{ post.url | relative_url }}" aria-label="{{ post.title | escape }}">
+          <div class="post-card-meta">
+            <span class="post-category">{{ display_category }}</span>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%Y.%m.%d' }}</time>
+          </div>
+          <h3>{{ post.title | escape }}</h3>
+          {% if post.excerpt %}
+            <p class="post-excerpt">{{ post.excerpt | strip_html | truncate: 110 }}</p>
+          {% endif %}
+          <span class="read-more">記事を読む <span aria-hidden="true">→</span></span>
+        </a>
+      </article>
+    {%- endfor -%}
+  </div>
+
+  {%- if site.posts.size == 0 -%}
+    <p class="empty-message">まだ記事がありません。</p>
+  {%- endif -%}
+</section>
+
+<script>
+  (function () {
+    var buttons = document.querySelectorAll('.filter-button');
+    var cards = document.querySelectorAll('.post-card');
+
+    function filterPosts(category) {
+      buttons.forEach(function (button) {
+        button.classList.toggle('is-active', button.dataset.filter === category);
+      });
+      cards.forEach(function (card) {
+        card.hidden = category !== 'すべて' && card.dataset.category !== category;
+      });
+    }
+
+    buttons.forEach(function (button) {
+      button.addEventListener('click', function () {
+        filterPosts(button.dataset.filter);
+      });
+    });
+
+    document.querySelectorAll('[data-category-link]').forEach(function (link) {
+      link.addEventListener('click', function () {
+        window.setTimeout(function () {
+          filterPosts(link.dataset.categoryLink);
+        }, 0);
+      });
+    });
+  }());
+</script>

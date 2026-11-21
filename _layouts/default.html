@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'ja' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
+    <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-inner">
+        <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} ホーム">
+          <img class="profile-image" src="{{ '/assets/images/profile-placeholder.svg' | relative_url }}" alt="プロフィール画像">
+          <span class="brand-name">KGcompany</span>
+        </a>
+        <nav class="category-nav" aria-label="カテゴリ">
+          <a href="{{ '/' | relative_url }}#posts" data-category-link="開発">開発</a>
+          <a href="{{ '/' | relative_url }}#posts" data-category-link="勉強">勉強</a>
+          <a href="{{ '/' | relative_url }}#posts" data-category-link="読書">読書</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-content">
+      {{ content }}
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; {{ 'now' | date: '%Y' }} KGcompany</p>
+    </footer>
+  </body>
+</html>
