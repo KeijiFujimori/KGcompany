@@ -21,7 +21,7 @@ permalink: /profile/
     </p>
 
     <h2>資格・経歴</h2>
-    <ol class="achievement-timeline">
+    <ul class="achievement-timeline">
       <li>
         <time datetime="2020">2020</time>
         <span>普通自動車第一種免許</span>
@@ -54,6 +54,6 @@ permalink: /profile/
         <time datetime="2026">2026</time>
         <span>ITパスポート</span>
       </li>
-    </ol>
+    </ul>
   </div>
 </section>
