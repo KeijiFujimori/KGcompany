@@ -319,9 +319,109 @@ a {
   height: auto;
 }
 
+.profile-page {
+  width: min(1120px, calc(100% - 40px));
+  margin: 64px auto 96px;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(360px, 1.15fr);
+  gap: 56px;
+  align-items: start;
+}
+
+.profile-visual {
+  position: sticky;
+  top: 112px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 18px 44px rgba(32, 33, 36, 0.08);
+}
+
+.profile-portrait {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: block;
+  object-fit: cover;
+}
+
+.profile-details {
+  padding: 16px 0;
+}
+
+.profile-kicker {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.profile-details h1 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2.4rem, 5vw, 4.2rem);
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+.profile-intro {
+  max-width: 620px;
+  margin: 18px 0 38px;
+  color: var(--muted);
+  font-size: 1.02rem;
+}
+
+.profile-details h2 {
+  margin: 0 0 18px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.25rem;
+}
+
+.achievement-timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.achievement-timeline li {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 92px 1fr;
+  align-items: start;
+  gap: 18px;
+  padding: 13px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.achievement-timeline time {
+  color: var(--accent);
+  font-size: 0.88rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.achievement-timeline span {
+  font-weight: 700;
+}
+
 @media (max-width: 820px) {
   .post-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .profile-page {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .profile-visual {
+    position: static;
+  }
+
+  .profile-portrait {
+    max-height: 620px;
   }
 }
 
